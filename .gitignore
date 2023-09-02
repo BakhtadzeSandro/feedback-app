@@ -45,4 +45,4 @@ Thumbs.db
 db.json
 
 # Ignore the assets folder
-/assets/
+/src/assets/
