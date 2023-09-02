@@ -1,0 +1,42 @@
+<div class="side-boxes">
+  <div class="image-box">
+    <img src="../../../assets/suggestions/desktop/background-header.png" />
+    <div class="image-text">
+      <div class="title">Frontend Mentor - Baxto</div>
+      <p>Feedback Board</p>
+    </div>
+  </div>
+  <div class="filter-box">
+    <div class="button-box">
+      <button
+        *ngFor="let option of filterOptions"
+        [class.selected]="selectedFilter === option"
+        (click)="updateFilter(option)"
+      >
+        {{ option }}
+      </button>
+    </div>
+  </div>
+  <div class="filter-box">
+    <div class="roadmap-box">
+      <div class="titles">
+        <div class="title">Roadmap</div>
+        <a routerLink="roadmap"><u>View</u></a>
+      </div>
+      <div class="statuses">
+        <div class="status-box">
+          <div class="status" *ngFor="let item of statuses$ | async">
+            <div class="status-names">
+              <div
+                [ngClass]="switchColorOfStatuses(item.status)"
+                class="circles"
+              ></div>
+              <p>{{ item.status | titlecase }}</p>
+            </div>
+            <p class="item-length">{{ item.length }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+// @mixin tablet {
+//   @media only screen and (max-width: 992px) {
+//     @content;
+//   }
+// }
+
+// @mixin mobile {
+//   @media only sceen and (max-width: 768px) {
+//     @content;
+//   }
+// }
+@import "mixins";
+
+html,
+body {
+  // height: 100%;
+}
+body {
+  margin: 8% 8%;
+  padding: 0;
+  font-family: "Jost", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Playfair Display", serif;
+  background-color: #f7f8fd;
+  @include tablet {
+    margin: 3% 3%;
+  }
+  @include mobile {
+    margin: 0;
+  }
+}

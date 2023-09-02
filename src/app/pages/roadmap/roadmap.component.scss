@@ -1,0 +1,13 @@
+@import "../../../mixins";
+
+app-suggestions-header {
+  @include mobile {
+    width: 100%;
+  }
+}
+.roadmap {
+  @include mobile {
+    width: 95%;
+    margin: 0 auto 5% auto;
+  }
+}

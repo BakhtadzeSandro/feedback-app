@@ -1,0 +1,103 @@
+@import "../../../mixins";
+
+.container {
+  border-radius: 10px;
+  background: #373f68;
+  text-align: center;
+  font-family: Jost;
+  @include tablet {
+    margin-top: 5%;
+  }
+  .childs {
+    padding: 2%;
+    .boxes {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .left-side-roadmap {
+        display: flex;
+        flex-direction: column;
+        .go-back {
+          display: flex;
+          gap: 10px;
+          color: #fff;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          cursor: pointer;
+        }
+        .roadmap-title {
+          p {
+            color: #fff;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: -0.333px;
+          }
+        }
+      }
+      .left-side {
+        width: 80%;
+        display: flex;
+        gap: 15%;
+        text-align: center;
+        align-items: center;
+        .bulb-icon {
+          @include mobile {
+            display: none;
+          }
+        }
+        .suggestions-quantity {
+          text-align: center;
+          @include mobile {
+            display: none;
+          }
+          p {
+            color: #fff;
+            font-family: Jost;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: -0.25px;
+            text-align: center;
+            margin-top: 10%;
+          }
+        }
+        .sort-menu {
+          .menu-button {
+            color: #fff;
+            font-family: Jost;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: -0.25px;
+            text-align: center;
+          }
+        }
+      }
+      .add-feedback {
+        button {
+          width: 158px;
+          height: 44px;
+          border-radius: 10px;
+          background: #ad1fea;
+          padding: 3%;
+          cursor: pointer;
+          border: none;
+          color: #f2f4fe;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          &:hover {
+            background-color: #c75af6;
+          }
+        }
+      }
+    }
+  }
+}

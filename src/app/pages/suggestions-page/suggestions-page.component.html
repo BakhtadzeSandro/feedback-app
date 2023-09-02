@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="sidebar">
+    <app-side-settings
+      (categoryFilterEvent)="categoryFilterEventHandler($event)"
+    ></app-side-settings>
+  </div>
+  <div class="suggestions-header-and-requests">
+    <app-suggestions-header
+      [dataLength]="dataLength"
+      (sortOption)="sortOptionHandler($event)"
+    ></app-suggestions-header>
+    <app-product-request
+      [category]="category"
+      [sortOption]="sortOption"
+      (suggestedProductsLength)="dataLengthHandler($event)"
+    ></app-product-request>
+    <app-empty-state *ngIf="dataLength == 0"></app-empty-state>
+  </div>
+</div>

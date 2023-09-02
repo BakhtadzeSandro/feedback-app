@@ -1,0 +1,44 @@
+<div
+  class="container"
+  [ngStyle]="{
+    'border-top-color': getBorderColorByStatus(productRequest?.status)
+  }"
+>
+  <div class="request-box">
+    <div class="status">
+      <div
+        class="circle"
+        [ngClass]="switchColorOfStatuses(productRequest?.status)"
+      ></div>
+      <p>{{ productRequest?.status | titlecase }}</p>
+    </div>
+    <div
+      (click)="goToSingleFeedback(productRequest?.id)"
+      class="go-to-feedback"
+    >
+      <div class="title">
+        <p>{{ productRequest?.title }}</p>
+      </div>
+      <div class="description">
+        <p>{{ productRequest?.description | shorten : 50 }}</p>
+      </div>
+    </div>
+    <div class="category">
+      <p>{{ productRequest?.category | titlecase }}</p>
+    </div>
+    <div class="upvotes-and-comments">
+      <div class="upvotes">
+        <img
+          src="../../../../assets/shared//icon-arrow-up.svg"
+          alt=""
+          (click)="upvote(productRequest?.id, productRequest?.upvotes)"
+        />
+        <p class="">{{ productRequest?.upvotes }}</p>
+      </div>
+      <div class="comments">
+        <img src="../../../../assets/shared/comment-icon.svg" />
+        <p>{{ productRequest?.totalCommentCount }}</p>
+      </div>
+    </div>
+  </div>
+</div>

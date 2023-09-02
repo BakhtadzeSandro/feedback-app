@@ -1,0 +1,116 @@
+<div class="routing-container">
+  <div class="go-back" routerLink="">
+    <p class="arrow"><</p>
+    <p class="route">Go Back</p>
+  </div>
+</div>
+<div class="container">
+  <div class="image-overlay">
+    <img src="../../../assets/shared/icon-new-feedback.svg" alt="Plus Icon" />
+  </div>
+  <div class="add-feedback-container">
+    <div class="add-feedback-box">
+      <div class="add-feedback-form">
+        <div class="title">
+          <h3 *ngIf="!editMode">Create New Feedback</h3>
+          <h3 *ngIf="editMode">Editing '{{ form.value.title }}'</h3>
+        </div>
+        <div class="form">
+          <form
+            [formGroup]="form"
+            (ngSubmit)="form.valid && handleSubmission()"
+          >
+            <div class="feedback-title">
+              <div class="feedback-content">
+                <div class="header">Feedback Title</div>
+                <p>Add a short, descriptive headline</p>
+              </div>
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Enter title..."
+                  formControlName="title"
+                />
+              </mat-form-field>
+            </div>
+            <div class="category">
+              <div class="category-content">
+                <div class="header">Category</div>
+                <p>Choose a category for your feedback</p>
+              </div>
+              <mat-form-field>
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category">
+                  <mat-option
+                    *ngFor="let option of categoryOptions"
+                    [value]="option"
+                    >{{ option }}</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div *ngIf="editMode" class="category">
+              <div class="category-content">
+                <div class="header">Update Status</div>
+                <p>Change feedback status</p>
+              </div>
+              <mat-form-field>
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status">
+                  <mat-option
+                    *ngFor="let option of statusOptions"
+                    [value]="option"
+                    >{{ option }}</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="feedback-details">
+              <div class="feedback-details-content">
+                <div class="header">Feedback Detail</div>
+                <p>
+                  Include any specific comments on what should be improved,
+                  added, etc.
+                </p>
+              </div>
+              <mat-form-field>
+                <!-- <input matInput formControlName="feedbackDetails" /> -->
+                <textarea
+                  placeholder="Enter feedback details..."
+                  matInput
+                  formControlName="feedbackDetails"
+                  cdkTextareaAutosize
+                  #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="5"
+                  cdkAutosizeMaxRows="10"
+                ></textarea>
+              </mat-form-field>
+            </div>
+            <div class="send-form">
+              <div class="buttons">
+                <div class="left-buttons">
+                  <button
+                    *ngIf="editMode"
+                    type="button"
+                    class="delete-button"
+                    (click)="openDeleteDialog()"
+                  >
+                    Delete
+                  </button>
+                </div>
+                <div class="right-buttons">
+                  <button type="button" class="cancel-button" routerLink="">
+                    Cancel
+                  </button>
+                  <button class="send-button" type="submit">
+                    {{ !editMode ? "Add Feedback" : "Save Changes" }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

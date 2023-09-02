@@ -1,0 +1,53 @@
+<div class="container" *ngIf="singleProductRequest">
+  <div class="total-comments">
+    <p>{{ singleProductRequest.totalCommentCount }} Comments</p>
+  </div>
+  <div
+    class="cont"
+    *ngFor="let comment of singleProductRequest?.comments; let i = index"
+  >
+    <div class="comment-container">
+      <div class="comment-header">
+        <div class="left-side">
+          <div class="image-and-user">
+            <div class="image">
+              <img [src]="comment.user.image" />
+            </div>
+            <div class="user">
+              <p class="name">{{ comment.user.name }}</p>
+              <p class="username">@{{ comment.user.username }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comment-content">
+        <div class="content">
+          <p>{{ comment.content }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="replies-container" *ngFor="let reply of comment.replies">
+      <div class="comment-header">
+        <div class="left-side">
+          <div class="image-and-user">
+            <div class="image">
+              <img [src]="reply.user.image" />
+            </div>
+            <div class="user">
+              <p class="name">{{ reply.user.name }}</p>
+              <p class="username">@{{ reply.user.username }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comment-content">
+        <div class="content">
+          <p>
+            <span>@{{ reply.replyingTo }} </span>{{ reply.content }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="hr" *ngIf="i != singleProductRequest.comments.length - 1"></div>
+  </div>
+</div>

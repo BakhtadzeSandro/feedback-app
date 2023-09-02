@@ -1,0 +1,8 @@
+<app-suggestions-header [onSuggestionsPage]="false"></app-suggestions-header>
+<div class="roadmap">
+  <app-roadmap-list
+    *ngIf="roadmapProductRequests$ | async as roadmapProductRequests"
+    [roadmapProductRequests]="roadmapProductRequests"
+    (upvotes)="upvotesHandler($event)"
+  ></app-roadmap-list>
+</div>

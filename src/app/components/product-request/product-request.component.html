@@ -1,0 +1,50 @@
+<!-- <div class="request-container" *ngFor="let item of productRequests$ | async">
+  <div class="request-box">
+    <div class="left-side">
+      <div class="votes-box">
+        <div class="votes">
+          <img src="../../../assets/shared/upvote-icon.svg" />
+          <p>{{ item.upvotes }}</p>
+        </div>
+      </div>
+      <div class="content">
+        <div class="title">
+          <p>{{ item.title }}</p>
+        </div>
+        <div class="description">
+          <p>{{ item.description }}</p>
+        </div>
+        <div class="category">
+          <p>{{ item.category | titlecase }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="right-side">
+      <div class="comments">
+        <img src="../../../assets//shared/comment-icon.svg" />
+        <p>{{ item.totalCommentCount }}</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+<app-generic-request
+  *ngFor="let item of (productRequests$ | async)?.slice(startIndex, endIndex)"
+  [item]="item"
+  (updateVotes)="updateVotesHandler($event)"
+></app-generic-request>
+<div *ngIf="hasProductRequests">
+  <mat-paginator
+    *ngIf="productRequests$ | async as productRequests"
+    #paginator
+    (page)="handlePageEvent($event)"
+    [length]="productRequests.length"
+    [pageSize]="6"
+    [disabled]="false"
+    [showFirstLastButtons]="true"
+    [pageSizeOptions]="[]"
+    [hidePageSize]="false"
+    [pageIndex]="pageIndex"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

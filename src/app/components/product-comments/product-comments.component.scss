@@ -1,0 +1,112 @@
+.container {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 3%;
+  border-radius: 10px;
+  font-family: Jost;
+  .total-comments {
+    padding: 3%;
+    p {
+      color: #3a4374;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: -0.25px;
+    }
+  }
+  .cont {
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    .comment-container,
+    .replies-container {
+      display: flex;
+      flex-direction: column;
+      .comment-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .left-side {
+          width: 50%;
+          .image-and-user {
+            display: flex;
+            gap: 5%;
+            .image {
+              img {
+                width: 50px;
+                height: 50px;
+                border-radius: 40px;
+              }
+            }
+            .user {
+              .name {
+                color: #3a4374;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                letter-spacing: -0.194px;
+              }
+              .username {
+                color: #647196;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+              }
+            }
+          }
+        }
+        .right-side {
+          p {
+            color: #4661e6;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            text-align: center;
+            cursor: pointer;
+          }
+        }
+      }
+      .comment-content {
+        display: flex;
+        .content {
+          margin-top: 2%;
+          p {
+            color: #647196;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            // overflow-wrap: break-word;
+            // word-break: break-all;
+            overflow-wrap: anywhere;
+            span {
+              color: #ad1fea;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+            }
+          }
+        }
+      }
+    }
+
+    .hr {
+      height: 1px;
+      width: 100%;
+      opacity: 0.25;
+      background: #8c92b3;
+      margin-top: 3%;
+    }
+  }
+}
+.replies-container {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  margin-top: 2%;
+}

@@ -40,3 +40,9 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Ignore the db.json file
+db.json
+
+# Ignore the assets folder
+/assets/

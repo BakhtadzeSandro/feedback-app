@@ -1,0 +1,24 @@
+<div class="feedback-details">
+  <div class="container">
+    <div class="routing-container">
+      <div class="go-back">
+        <p class="arrow"><</p>
+        <p class="route" routerLink="">Go Back</p>
+      </div>
+      <div class="edit-button">
+        <button (click)="editProductRequest()">Edit Feedback</button>
+      </div>
+    </div>
+    <div *ngIf="currentProductRequest$ | async as currentProductRequest">
+      <app-generic-request
+        [item]="currentProductRequest"
+        (updateVotes)="updateVotesHandler($event)"
+      ></app-generic-request>
+      <app-product-comments
+        [currentUser]="currentUser"
+        [singleProductRequest]="currentProductRequest"
+      ></app-product-comments>
+    </div>
+    <app-new-comment (addComment)="addCommentHandler($event)"></app-new-comment>
+  </div>
+</div>

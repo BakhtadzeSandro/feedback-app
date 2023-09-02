@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="requests">
+    <div class="titles">
+      <p class="title">Planned ({{ getPlannedRequests()?.length }})</p>
+      <p class="subtitle">Ideas prioritized for research</p>
+    </div>
+    <app-roadmap-card
+      *ngFor="let item of getPlannedRequests()"
+      [productRequest]="item"
+      (sendUpvotes)="upvotesHandler($event)"
+    ></app-roadmap-card>
+  </div>
+  <div class="requests">
+    <div class="titles">
+      <p class="title">In-Progress ({{ getInProgressRequests()?.length }})</p>
+      <p class="subtitle">Currently being developed</p>
+    </div>
+    <app-roadmap-card
+      *ngFor="let item of getInProgressRequests()"
+      [productRequest]="item"
+      (sendUpvotes)="upvotesHandler($event)"
+    ></app-roadmap-card>
+  </div>
+  <div class="requests">
+    <div class="titles">
+      <p class="title">Live ({{ getLiveRequests()?.length }})</p>
+      <p class="subtitle">Released features</p>
+    </div>
+    <app-roadmap-card
+      *ngFor="let item of getLiveRequests()"
+      [productRequest]="item"
+      (sendUpvotes)="upvotesHandler($event)"
+    ></app-roadmap-card>
+  </div>
+</div>

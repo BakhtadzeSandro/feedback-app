@@ -1,0 +1,37 @@
+<div *ngIf="item">
+  <div class="request-container">
+    <div class="request-box">
+      <div class="left-side">
+        <div class="votes-box">
+          <div class="votes" (click)="updateUpvotes(item)">
+            <img src="../../../assets/shared/upvote-icon.svg" />
+            <p>{{ item.upvotes }}</p>
+          </div>
+        </div>
+        <div class="content">
+          <div class="title" (click)="goToSingleFeedback(item)">
+            <p>{{ item.title }}</p>
+          </div>
+          <div class="description">
+            <p>{{ item.description }}</p>
+          </div>
+          <div class="category">
+            <p>{{ item.category | titlecase }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="comments">
+          <img src="../../../assets//shared/comment-icon.svg" />
+          <p>{{ item.totalCommentCount }}</p>
+        </div>
+        <div class="votes-box">
+          <div class="votes" (click)="updateUpvotes(item)">
+            <img src="../../../assets/shared/upvote-icon.svg" />
+            <p>{{ item.upvotes }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

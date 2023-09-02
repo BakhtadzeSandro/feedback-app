@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="childs">
+    <div class="boxes">
+      <div class="left-side" *ngIf="onSuggestionsPage">
+        <div class="bulb-icon">
+          <img src="../../../assets/shared//bulb 2.svg" />
+        </div>
+        <div class="suggestions-quantity">
+          <p>{{ dataLength }} Suggestions</p>
+        </div>
+        <div class="sort-menu">
+          <button mat-button [matMenuTriggerFor]="menu" class="menu-button">
+            Sort by: {{ chosenSortOption }}
+          </button>
+          <mat-menu #menu="matMenu">
+            <button
+              mat-menu-item
+              *ngFor="let option of sortOptions"
+              (click)="chooseSortOption(option)"
+            >
+              {{ option }}
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="left-side-roadmap" *ngIf="!onSuggestionsPage">
+        <div class="go-back" routerLink="">
+          <p><</p>
+          <p>Go Back</p>
+        </div>
+        <div class="roadmap-title">
+          <p>Roadmap</p>
+        </div>
+      </div>
+      <div class="add-feedback">
+        <button (click)="goToAddFeedbackPage()">+ Add Feedback</button>
+      </div>
+    </div>
+  </div>
+</div>

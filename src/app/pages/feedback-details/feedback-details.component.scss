@@ -1,0 +1,63 @@
+@import "../../../mixins";
+
+.feedback-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include tablet {
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  @include mobile {
+    width: 95%;
+    margin: 10% auto 0 auto;
+  }
+  .container {
+    width: 75%;
+    @include tablet {
+      width: 100%;
+    }
+    .routing-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .go-back {
+        width: 50%;
+        display: flex;
+        gap: 10px;
+        .arrow {
+          color: #4661e6;
+        }
+        .route {
+          color: #647196;
+          font-family: Jost;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          cursor: pointer;
+        }
+      }
+      .edit-button {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+        button {
+          border: none;
+          cursor: pointer;
+          color: #f2f4fe;
+          font-family: Jost;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          border-radius: 10px;
+          background: #4661e6;
+          padding: 3% 5%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import "../../../mixins";
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-family: Jost;
+  @include tablet {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 25%;
+    @include tablet {
+      width: 100%;
+    }
+  }
+  .suggestions-header-and-requests {
+    width: 72%;
+    @include tablet {
+      width: 100%;
+    }
+    @include mobile {
+      width: 95%;
+      margin: 0 auto;
+    }
+  }
+}

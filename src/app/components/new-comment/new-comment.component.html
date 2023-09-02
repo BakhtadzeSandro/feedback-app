@@ -1,0 +1,30 @@
+<div class="new-comment-container">
+  <div class="new-comment-box">
+    <div class="add-comment">
+      <p>Add Comment</p>
+    </div>
+    <div class="comment-content">
+      <mat-form-field>
+        <textarea
+          [formControl]="newComment"
+          placeholder="Type your comment here..."
+          matInput
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="3"
+          cdkAutosizeMaxRows="5"
+          (input)="checkInputLength()"
+          [maxlength]="maxCharacters"
+        ></textarea>
+      </mat-form-field>
+    </div>
+    <div class="post-comment">
+      <div class="characters">
+        <p>{{ charactersRemaining }} Characters left</p>
+      </div>
+      <div class="post-comment-button">
+        <button (click)="postComment()">Post Comment</button>
+      </div>
+    </div>
+  </div>
+</div>
