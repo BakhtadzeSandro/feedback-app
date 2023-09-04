@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ProductRequest, Comment, User } from 'src/app/models/requests.model';
+import { ProductRequest, User } from 'src/app/models/requests.model';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
   templateUrl: './product-comments.component.html',
   styleUrls: ['./product-comments.component.scss'],
 })
-export class ProductCommentsComponent implements OnInit {
+export class ProductCommentsComponent {
   @Input() singleProductRequest: ProductRequest | undefined;
   @Input() currentUser: User | undefined;
   newReply = new FormControl();
@@ -18,15 +18,7 @@ export class ProductCommentsComponent implements OnInit {
 
   constructor(private apiService: ApiService) {}
 
-  ngOnInit() {
-    console.log(this.singleProductRequest);
-  }
-
   checkInputLength() {
     this.charactersRemaining = this.maxCharacters - this.newReply.value.length;
-  }
-
-  postReply() {
-    console.log('test');
   }
 }

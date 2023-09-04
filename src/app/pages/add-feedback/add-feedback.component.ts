@@ -89,7 +89,6 @@ export class AddFeedbackComponent implements OnInit {
           }));
         });
     }
-    console.log(this.editMode);
   }
 
   openDeleteDialog() {
@@ -107,10 +106,7 @@ export class AddFeedbackComponent implements OnInit {
   }
 
   handleSubmission() {
-    console.log(this.editMode);
-    console.log('Test');
     if (!this.editMode) {
-      console.log('test');
       const title = this.form.value.title;
       const category = this.form.value.category?.toLocaleLowerCase();
       const description = this.form.value.feedbackDetails;

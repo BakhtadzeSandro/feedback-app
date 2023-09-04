@@ -111,7 +111,6 @@ export class ApiService {
   }
 
   addNewFeedback(newFeedback: NewFeedback): Observable<NewFeedback> {
-    console.log(newFeedback);
     return this.http.post<NewFeedback>(
       environment.jsonServerBase + '/productRequests',
       newFeedback
@@ -132,7 +131,6 @@ export class ApiService {
   }
 
   addComment(id: number, comments: Comment[]) {
-    console.log(comments);
     return this.http.patch(
       environment.jsonServerBase + '/productRequests/' + id,
       {
